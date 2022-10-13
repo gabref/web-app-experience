@@ -16,51 +16,57 @@
                 <h2 class="title-center">Impressão de Texto</h2>
                 <div class="message">
                     <label for="message">Mensagem:</label>
-                    <input type="text" name="message" id="message" value="Elgin Developers Community">
+                    <input type="text" name="message" id="message" value="Elgin Developers Community" class="text-white">
                 </div>
                 <div class="alignment">
                     <div class="title-left">Alinhamento:</div>
                     <div class="alignment-options">
-                        <input type="radio" id="rdb-left" name="rdb-align" value="rdb-left" checked>
-                        <label for="rdb-left">Esquerda</label>
-                        <input type="radio" id="rdb-center" name="rdb-align" value="rdb-center">
-                        <label for="rdb-center">Centralizado</label>
-                        <input type="radio" id="rdb-right" name="rdb-align" value="rdb-right">
-                        <label for="rdb-right">Direita</label>
+                        <div class="box">
+                            <input type="radio" id="rdb-left" name="rdb-align" value="rdb-left" class="radio radio-purple" checked>
+                            <label for="rdb-left" class="text text-white">Esquerda</label>
+                        </div>
+                        <div class="box">
+                            <input type="radio" id="rdb-center" name="rdb-align" class="radio radio-purple" value="rdb-center">
+                            <label for="rdb-center" class="text text-white">Centralizado</label>
+                        </div>
+                        <div class="box">
+                            <input type="radio" id="rdb-right" name="rdb-align" class="radio radio-purple" value="rdb-right">
+                            <label for="rdb-right" class="text text-white">Direita</label>
+                        </div>
                     </div>
                 </div>
                 <div class="styling">
                     <div class="title-left">Estilização:</div>
                     <div class="options">
                         <label for="font-fam">Font Family:</label>
-                        <select name="font" id="font-fam">
+                        <select name="font" id="font-fam" class="select select-purple">
                             <option value="0">Font A</option>
                             <option value="1">Font B</option>
                         </select>
                         <label for="font-siz">Font Size:</label>
-                        <select name="font" id="font-siz">
+                        <select name="font" id="font-siz" class="select">
                             <option value="37">37</option>
                             <option value="42">42</option>
                             <option value="55">55</option>
                         </select>
                         <div class="checkboxes">
-                            <span>
-                                <input type="checkbox" id="bold" name="bold" value="8">
-                                <label for="bold"> Negrito</label>
-                            </span>
-                            <span>
-                                <input type="checkbox" id="italic" name="italic" value="2">
-                                <label for="italic"> Sublinahdo</label>
-                            </span>
-                            <span>
-                                <input type="checkbox" id="cut" name="cut" value="0">
-                                <label for="cut"> Cut Paper</label>
-                            </span>
+                            <div class="box">
+                                <input type="checkbox" id="bold" name="bold" value="8" class="checkbox checkbox-purple">
+                                <label for="bold" class="text text-white"> Negrito</label>
+                            </div>
+                            <div class="box">
+                                <input type="checkbox" id="italic" name="italic" value="2" class="checkbox checkbox-purple">
+                                <label for="italic" class="text text-white"> Sublinahdo</label>
+                            </div>
+                            <div class="box">
+                                <input type="checkbox" id="cut" name="cut" value="0" class="checkbox checkbox-purple">
+                                <label for="cut" class="text text-white"> Cut Paper</label>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="actions">
-                    <input type="button" id="print-send" value="Imprimir Texto">
+                    <input type="button" id="print-send" value="Imprimir Texto" class="btn bg-purple-cyan m-sm">
                 </div>
             </div>
         </div>
