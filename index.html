@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="printer">
+        <div class="left-options">
+        </div>
+        <div class="right-printer">
+            <div class="print-text">
+                <h2 class="title-center">Impressão de Texto</h2>
+                <div class="message">
+                    <label for="message">Mensagem:</label>
+                    <input type="text" name="message" id="message" value="Elgin Developers Community">
+                </div>
+                <div class="alignment">
+                    <div class="title-left">Alinhamento:</div>
+                    <div class="alignment-options">
+                        <input type="radio" id="rdb-left" name="rdb-align" value="rdb-left" checked>
+                        <label for="rdb-left">Esquerda</label>
+                        <input type="radio" id="rdb-center" name="rdb-align" value="rdb-center">
+                        <label for="rdb-center">Centralizado</label>
+                        <input type="radio" id="rdb-right" name="rdb-align" value="rdb-right">
+                        <label for="rdb-right">Direita</label>
+                    </div>
+                </div>
+                <div class="styling">
+                    <div class="title-left">Estilização:</div>
+                    <div class="options">
+                        <label for="font-fam">Font Family:</label>
+                        <select name="font" id="font-fam">
+                            <option value="0">Font A</option>
+                            <option value="1">Font B</option>
+                        </select>
+                        <label for="font-siz">Font Size:</label>
+                        <select name="font" id="font-siz">
+                            <option value="37">37</option>
+                            <option value="42">42</option>
+                            <option value="55">55</option>
+                        </select>
+                        <div class="checkboxes">
+                            <span>
+                                <input type="checkbox" id="bold" name="bold" value="8">
+                                <label for="bold"> Negrito</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="italic" name="italic" value="2">
+                                <label for="italic"> Sublinahdo</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="cut" name="cut" value="0">
+                                <label for="cut"> Cut Paper</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <input type="button" id="print-send" value="Imprimir Texto">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
