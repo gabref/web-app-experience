@@ -17,6 +17,7 @@
     <input id="texto-solo" type="button" value="Imprimir Texto Solo" style="width: 50%; height: 50px;"><br>
     <input id="abre-gaveta" type="button" value="Abre Gaveta" style="width: 50%; height: 50px;"><br>
     <input id="corte" type="button" value="Corte" style="width: 50%; height: 50px;"><br>
+    <input id="avanca" type="button" value="Avanca Papel" style="width: 50%; height: 50px;"><br>
     <input id="cupomtef" type="button" value="Cupom Tef" style="width: 50%; height: 50px;"><br>
     <ul id="list">
         <li>resultados:</li>
@@ -31,6 +32,7 @@
         document.querySelector('#texto-solo').addEventListener('click', testeImpressaoTextoSolo)
         document.querySelector('#abre-gaveta').addEventListener('click', testeAbreGaveta)
         document.querySelector('#corte').addEventListener('click', testeCorte)
+        document.querySelector('#avanca').addEventListener('click', testeAvancaPapel)
         document.querySelector('#cupomtef').addEventListener('click', testeImprimeCupomTEF)
 
         function addLi(text) {
