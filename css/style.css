@@ -62,7 +62,7 @@ body {
     margin: 0;
     font-family: Fira Code, 'Monaco', 'Roboto', sans-serif;
     font-size: 21px;
-    color: white;
+    color: var(--black);
 }
 
 main {
@@ -95,7 +95,7 @@ main {
 }
 .card > span {
     text-align: center;
-    color: var(--white);
+    color: var(--black);
 }
 .card-subtle {
 	background: none;
@@ -391,7 +391,7 @@ h2.title-center {
 
 .actions > input {
     font-family: Fira Code, monospace;
-    color: #fff;
+    color: var(--black);
     border: none;
     border-radius: 0.7em;
     padding: 0.5em;
@@ -502,7 +502,7 @@ h2.title-center {
 
 .buttons-sat > input {
     font-family: Fira Code, monospace;
-    color: #fff;
+    color: var(--black);
     border: none;
     border-radius: 0.7em;
     padding: 0.5em;

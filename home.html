@@ -1,185 +1,205 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Git</title>
+    <title>Exemplo Web</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <input id="texto" type="button" value="Imprimir Teste" style="width: 50%; height: 50px;"><br>
-    <input id="qrcode" type="button" value="Imprimir QRCode" style="width: 50%; height: 50px;"><br>
-    <input id="status" type="button" value="Status Impressora" style="width: 50%; height: 50px;"><br>
-    <input id="abre" type="button" value="Abre Conexao" style="width: 50%; height: 50px;"><br>
-    <input id="fecha" type="button" value="Fecha Conexao" style="width: 50%; height: 50px;"><br>
-    <input id="qrcode-solo" type="button" value="Imprimir QRCode Solo" style="width: 50%; height: 50px;"><br>
-    <input id="texto-solo" type="button" value="Imprimir Texto Solo" style="width: 50%; height: 50px;"><br>
-    <input id="abre-gaveta" type="button" value="Abre Gaveta" style="width: 50%; height: 50px;"><br>
-    <input id="corte" type="button" value="Corte" style="width: 50%; height: 50px;"><br>
-    <input id="avanca" type="button" value="Avanca Papel" style="width: 50%; height: 50px;"><br>
-    <input id="cupomtef" type="button" value="Cupom Tef" style="width: 50%; height: 50px;"><br>
-    <ul id="list">
-        <li>resultados:</li>
-    </ul>
-    <script>
-        document.querySelector('#texto').addEventListener('click', testeImpressaoTexto)
-        document.querySelector('#qrcode').addEventListener('click', testeImpressaoQRCode)
-        document.querySelector('#status').addEventListener('click', testeStatusImpressora)
-        document.querySelector('#abre').addEventListener('click', testeAbreConexao)
-        document.querySelector('#fecha').addEventListener('click', testeFechaConexao)
-        document.querySelector('#qrcode-solo').addEventListener('click', testeImpressaoQRCodeSolo)
-        document.querySelector('#texto-solo').addEventListener('click', testeImpressaoTextoSolo)
-        document.querySelector('#abre-gaveta').addEventListener('click', testeAbreGaveta)
-        document.querySelector('#corte').addEventListener('click', testeCorte)
-        document.querySelector('#avanca').addEventListener('click', testeAvancaPapel)
-        document.querySelector('#cupomtef').addEventListener('click', testeImprimeCupomTEF)
+    <main>
+        <div class="left-options">
+            <div class="box card" id="print-text">
+                <span class="text">Impressão de Texto</span>
+            </div>
+            <div class="box card card-subtle" id="print-barcode">
+                <span class="text">Impressão Código de Barras</span>
+            </div>
+            <div class="box card card-subtle default-tab" id="sat">
+                <span class="text">SAT</span>
+            </div>
+        </div>
+        <div class="right-side">
+            <!-- IMPRESSÃO DE TEXTO -->
+            <div class="print-text tabcontent">
+                <h2 class="title-center">Impressão de Texto</h2>
+                <div class="printer-main">
+                    <div class="message">
+                        <label for="message">Mensagem:</label>
+                        <input type="text" name="message" id="message" value="Elgin Developers Community" class="text-white">
+                    </div>
+                    <div class="alignment">
+                        <div class="title-left">Alinhamento:</div>
+                        <div class="alignment-options">
+                            <div class="box">
+                                <input type="radio" id="rdb-left" name="rdb-align" value="rdb-left" class="radio radio-purple" checked>
+                                <label for="rdb-left" class="text text-white">Esquerda</label>
+                            </div>
+                            <div class="box">
+                                <input type="radio" id="rdb-center" name="rdb-align" class="radio radio-purple" value="rdb-center">
+                                <label for="rdb-center" class="text text-white">Centralizado</label>
+                            </div>
+                            <div class="box">
+                                <input type="radio" id="rdb-right" name="rdb-align" class="radio radio-purple" value="rdb-right">
+                                <label for="rdb-right" class="text text-white">Direita</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="styling">
+                        <div class="title-left">Estilização:</div>
+                        <div class="options">
+                            <label for="font-fam">Font Family:</label>
+                            <select name="font" id="font-fam" class="select select-purple">
+                                <option value="0">Font A</option>
+                                <option value="1">Font B</option>
+                            </select>
+                            <label for="font-siz">Font Size:</label>
+                            <select name="font" id="font-siz" class="select">
+                                <option value="17">17</option>
+                                <option value="34">34</option>
+                                <option value="51">51</option>
+                                <option value="68">68</option>
+                            </select>
+                            <div class="checkboxes">
+                                <div class="box">
+                                    <input type="checkbox" id="bold" name="bold" value="8" class="checkbox checkbox-purple">
+                                    <label for="bold" class="text text-white"> Negrito</label>
+                                </div>
+                                <div class="box">
+                                    <input type="checkbox" id="italic" name="italic" value="2" class="checkbox checkbox-purple">
+                                    <label for="italic" class="text text-white"> Sublinahdo</label>
+                                </div>
+                                <div class="box">
+                                    <input type="checkbox" id="cut" name="cut" value="0" class="checkbox checkbox-purple">
+                                    <label for="cut" class="text text-white"> Cut Paper</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <input type="button" id="print-send" value="Imprimir Texto" class="btn bg-purple-cyan m-sm">
+                    </div>
+                </div>
+            </div>
 
-        function addLi(text) {
-            let ul = document.getElementById("list");
-            let li = document.createElement("li");
-            li.appendChild(document.createTextNode(text));
-            ul.appendChild(li);
-        }
+            <!-- ============================= -->
+            <!-- IMPRESSÃO DE CÓDIGOS DE BARRAS -->
+            <!-- ============================= -->
+            <div class="print-barcode tabcontent">
+                <h2 class="title-center">Código de Barras</h2>
+                <div class="barcode-main">
+                    <div class="message">
+                        <label for="messageb">Código:</label>
+                        <input type="text" id="messageb" name="message" value="40170725" class="text-white">
+                    </div>
+                    <div class="options">
+                        <label for="barcode-type">Tipo de Código de Barras:</label>
+                        <select name="font" id="barcode-type" class="select select-purple">
+                            <option value="9">QR Code</option>
+                        </select>
+                    </div>
+                    <!-- <div class="alignment">
+                        <div class="title-left">Alinhamento:</div>
+                        <div class="alignment-options">
+                            <div class="box">
+                                <div class="box">
+                                    <input type="radio" id="rdb-bleft" name="rdb-align" value="rdb-left" class="radio radio-purple" checked>
+                                    <label for="rdb-bleft" class="text text-white">Esquerda</label>
+                                </div>
+                                <div class="box">
+                                    <input type="radio" id="rdb-bcenter" name="rdb-align" class="radio radio-purple" value="rdb-center">
+                                    <label for="rdb-bcenter" class="text text-white">Centralizado</label>
+                                </div>
+                                <div class="box">
+                                    <input type="radio" id="rdb-bright" name="rdb-align" class="radio radio-purple" value="rdb-right">
+                                    <label for="rdb-bright" class="text text-white">Direita</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="styling">
+                        <div class="title-left">Estilização:</div>
+                        <div class="options">
+                            <!-- <label for="font-fam">Font Family:</label>
+                            <select name="font" id="font-fam" class="select select-purple">
+                                <option value="0">Font A</option>
+                                <option value="1">Font B</option>
+                            </select> -->
+                            <label for="bar-size">Font Size:</label>
+                            <select name="font" id="bar-size" class="select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                            <div class="checkboxes">
+                                <!-- <div class="box">
+                                    <input type="checkbox" id="bold" name="bold" value="8" class="checkbox checkbox-purple">
+                                    <label for="bold" class="text text-white"> Negrito</label>
+                                </div>
+                                <div class="box">
+                                    <input type="checkbox" id="italic" name="italic" value="2" class="checkbox checkbox-purple">
+                                    <label for="italic" class="text text-white"> Sublinahdo</label>
+                                </div> -->
+                                <div class="box">
+                                    <input type="checkbox" id="cutb" name="cut" value="0" class="checkbox checkbox-purple">
+                                    <label for="cutb" class="text text-white"> Cut Paper</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <input type="button" id="printb-send" value="Imprimir Código" class="btn bg-purple-cyan m-sm">
+                    </div>
+                </div>
+            </div>
 
-        function removeLis() {
-            document.getElementById("list").innerHTML = "";
-        }
+            <!-- ============================= -->
+            <!-- SAT -->
+            <!-- ============================= -->
+            <div class="sat tabcontent">
+                <h2 class="title-center">SAT Homologação</h2>
+                <div class="sat-main">
+                    <div class="text-area">
+                        <textarea name="retorno" id="retsat">Retorno: </textarea>
+                    </div>
+                    <div class="sat-functions">
+                        <div class="box-sat-rdbs">
+                            <div class="box">
+                                <input type="radio" id="smart-sat" name="rdb-sat" value="smartsat" class="radio radio-purple" checked>
+                                <label for="smart-sat" class="text text-white">Smart Sat</label>
+                            </div>
+                            <div class="box">
+                                <input type="radio" id="satgo" name="rdb-sat" class="radio radio-purple" value="satgo">
+                                <label for="satgo" class="text text-white">SatGo</label>
+                            </div>
+                        </div>
+                        <div class="message cod-ativacao">
+                            <label for="cod-ativacao">Código:</label>
+                            <input type="text" id="cod-ativacao" name="message" value="123456789" class="text-white">
+                        </div>
+                        <div class="buttons-sat">
+                            <input type="button" id="consultar-sat" value="Consultar Sat" class="btn bg-purple-cyan m-sm">
+                            <input type="button" id="status-operacional" value="Status Operacional" class="btn bg-purple-cyan m-sm">
+                            <!-- <input type="button" id="realizar-venda" value="Realizar Venda" class="btn bg-purple-cyan m-sm"> -->
+                            <input type="button" id="extrair-log" value="Extrair Log" class="btn bg-purple-cyan m-sm">
+                            <input type="button" id="cancelamento" value="Cancelamento" class="btn bg-purple-cyan m-sm">
+                            <input type="button" id="ativar" value="Ativar" class="btn bg-purple-cyan m-sm">
+                            <input type="button" id="associar" value="Associar" class="btn bg-purple-cyan m-sm">
+                        </div>
+                    </div>
+                </div>
 
-        function testeAbreConexao() {
-            removeLis()
-            addLi('bora lá')
-            let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
-            let result = Termica.AbreConexaoImpressora(args)
-            addLi('abreconexaoimpressora')
-            addLi(`result: ${result}`)
-        }
+            </div>    
+        </div>
+    </main>
 
-        function testeFechaConexao() {
-            removeLis()
-            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
-            addLi('fecha')
-            addLi(`result: ${result}`)
-        }
-
-        function testeImpressaoTexto() {
-            removeLis()
-            addLi('bora lá')
-            let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
-            let result = Termica.AbreConexaoImpressora(args)
-            addLi('abreconexaoimpressora')
-            addLi(`result: ${result}`)
-    
-            args = JSON.stringify({ dados : 'Elgin Developers Community From Web App', 
-                                    alinhamento: 0, 
-                                    stilo: 0, 
-                                    tamanho: 17 })
-            result = Termica.ImpressaoTexto(args)
-            addLi('impressao texto')
-            addLi(`result: ${result}`)
-    
-            result = Termica.Corte(JSON.stringify({ avanco : 10 }))
-            addLi('corte')
-            addLi(`result: ${result}`)
-
-            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
-            addLi('fecha')
-            addLi(`result: ${result}`)
-        }
-
-        function testeImpressaoQRCode() {
-            removeLis()
-            addLi('bora lá')
-            let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
-            let result = Termica.AbreConexaoImpressora(args)
-            addLi('abreconexaoimpressora')
-            addLi(`result: ${result}`)
-    
-            args = JSON.stringify({ dados: 'https://web-app-experience.herokuapp.com/', 
-                                    tamanho: 4, 
-                                    nivelCorrecao: 2 })
-            result = Termica.ImpressaoQRCode(args)
-            addLi('impressao texto')
-            addLi(`result: ${result}`)
-    
-            result = Termica.Corte(JSON.stringify({ avanco : 10 }))
-            addLi('corte')
-            addLi(`result: ${result}`)
-
-            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
-            addLi('fecha')
-            addLi(`result: ${result}`)
-        }
-
-        function testeStatusImpressora() {
-            removeLis()
-            addLi('bora lá')
-            let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
-            let result = Termica.AbreConexaoImpressora(args)
-            addLi('abreconexaoimpressora')
-            addLi(`result: ${result}`)
-    
-            args = JSON.stringify({ param: 3 })
-            result = Termica.StatusImpressora(args)
-            addLi('statusimpressora')
-            addLi(`result: ${result}`)
-
-            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
-            addLi('fecha')
-            addLi(`result: ${result}`)
-        }
-
-        function testeImpressaoTextoSolo() {
-            removeLis()
-            args = JSON.stringify({ dados : 'Elgin Developers Community From Web App', 
-                                    alinhamento: 0, 
-                                    stilo: 0, 
-                                    tamanho: 17 })
-            result = Termica.ImpressaoTexto(args)
-            addLi('impressao texto')
-            addLi(`result: ${result}`)
-        }
-
-        function testeImpressaoQRCodeSolo() {
-            removeLis()
-            args = JSON.stringify({ dados: 'https://web-app-experience.herokuapp.com/', 
-                                    tamanho: 4, 
-                                    nivelCorrecao: 2 })
-            result = Termica.ImpressaoQRCode(args)
-            addLi('impressao qrcode solo')
-            addLi(`result: ${result}`)
-        }
-
-        function testeAbreGaveta() {
-            removeLis()
-            args = JSON.stringify({ })
-            result = Termica.AbreGavetaElgin(args)
-            addLi('teste gaveta')
-            addLi(`result: ${result}`)
-        }
-
-        function testeCorte() {
-            removeLis()
-            result = Termica.Corte(JSON.stringify({ avanco : 10 }))
-            addLi('corte')
-            addLi(`result: ${result}`)
-        }
-
-        function testeAvancaPapel() {
-            removeLis()
-            result = Termica.AvancaPapel(JSON.stringify({ linhas : 10 }))
-            addLi('avancapapel')
-            addLi(`result: ${result}`)
-        }
-
-        function testeImprimeCupomTEF() {
-            let cupom = '000-000 = CRT\n 001-000 = 1\n 002-000 = 123456\n 003-000 = 4500\n 010-000 = ELECTRON\n 010-001 = 103\n 010-003 = 21\n 010-004 = 417402\n 010-005 = 7578\n 011-000 = 03603511027\n 012-000 = 001315\n 013-000 = 001315\n 018-000 = 01\n 022-000 = 0326\n 023-000 = 192414\n 028-000 = 37\n 029-001 = ELGIN PAY TESTE BANRISUL\n 029-002 = 92.702.067/0001-96   \n 029-003 = R CAPITAO MONTANHA, 177\n 029-004 = CENTRO PORTO ALEGRE RS\n 029-005 = \n 029-006 = \n 029-007 = \n 029-008 = \n 029-009 =                  REDE                 \n 029-010 = \n 029-011 = REDESHOP  -      OKI                  \n 029-012 = \n 029-013 = \n 029-014 = COMPROV: 123456789 VALOR: 45,00\n 029-015 = \n 029-016 = ESTAB:013932594 SCOPE TESTE SIMULADO  \n 029-017 = DD.MM.AA-HH:MM:SS TERM:PV123456/pppnnn\n 029-018 = CARTAO: ************7578\n 029-019 = AUTORIZACAO: 123456                   \n 029-020 = ARQC:36DEFEF9D3490BC5\n 029-021 = \n 029-022 = **************************************\n 029-023 =          D E M O N S T R A C A O      \n 029-024 =  Transacao sem validade para reembolso\n 029-025 =     Autorizacao gerada por simulador  \n 029-026 = **************************************\n 029-027 = \n 029-028 =     TRANSACAO AUTORIZADA MEDIANTE     \n 029-029 =         USO DE SENHA PESSOAL.         \n 029-030 =                                       \n 029-031 = 0\n 029-032 = CONTROLE 03603511027  OKI BRASIL SCOPE\n 029-033 = \n 029-034 = \n 029-035 = \n 029-036 = \n 029-037 = \n 030-000 = Transação Finalizada com Sucesso\n 043-000 = SIMULADOR\n 047-000 = 00\n 050-000 = 000\n 150-000 = 000000000000002\n 210-004 = 4174020000007578=25080000000000000000\n 210-052 = 001\n 210-052 = 001\n 300-001 = 0825\n 600-000 = 01425787000104\n 701-016 = 0326\n 999-999 = 0'
-            removeLis()
-            result = Termica.ImprimeCupomTEF(JSON.stringify({ dados : cupom }))
-            addLi('cupomtef')
-            addLi(`result: ${result}`)
-        }
-
-    </script>
+    <script src="js/script.js"></script>
+    <script src="js/printText.js"></script>
+    <script src="js/printBarCode.js"></script>
+    <script src="js/sat.js"></script>
 </body>
 </html>
