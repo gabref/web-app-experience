@@ -8,9 +8,11 @@
     <title>Test</title>
 </head>
 <body>
-    <input id="texto" type="button" value="Imprimir Teste" style="width: 50%;"><br>
-    <input id="qrcode" type="button" value="Imprimir QRCode" style="width: 50%;"><br>
-    <input id="status" type="button" value="Status Impressora" style="width: 50%;"><br>
+    <input id="texto" type="button" value="Imprimir Teste" style="width: 50%; height: 50px;"><br>
+    <input id="qrcode" type="button" value="Imprimir QRCode" style="width: 50%; height: 50px;"><br>
+    <input id="status" type="button" value="Status Impressora" style="width: 50%; height: 50px;"><br>
+    <input id="abre" type="button" value="Abre Conexao" style="width: 50%; height: 50px;"><br>
+    <input id="fecha" type="button" value="Fecha Conexao" style="width: 50%; height: 50px;"><br>
     <ul id="list">
         <li>resultados:</li>
     </ul>
@@ -18,6 +20,8 @@
         document.querySelector('#texto').addEventListener('click', testeImpressaoTexto)
         document.querySelector('#qrcode').addEventListener('click', testeImpressaoQRCode)
         document.querySelector('#status').addEventListener('click', testeStatusImpressora)
+        document.querySelector('#abre').addEventListener('click', testeAbreConexao)
+        document.querySelector('#fecha').addEventListener('click', testeFechaConexao)
 
         function addLi(text) {
             let ul = document.getElementById("list");
@@ -28,6 +32,22 @@
 
         function removeLis() {
             document.getElementById("list").innerHTML = "";
+        }
+
+        function testeAbreConexao() {
+            removeLis()
+            addLi('bora lá')
+            let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
+            let result = Termica.AbreConexaoImpressora(args)
+            addLi('abreconexaoimpressora')
+            addLi(`result: ${result}`)
+        }
+
+        function testeFechaConexao() {
+            removeLis()
+            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
+            addLi('fecha')
+            addLi(`result: ${result}`)
         }
 
         function testeImpressaoTexto() {
