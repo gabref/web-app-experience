@@ -13,6 +13,7 @@
     <input id="status" type="button" value="Status Impressora" style="width: 50%; height: 50px;"><br>
     <input id="abre" type="button" value="Abre Conexao" style="width: 50%; height: 50px;"><br>
     <input id="fecha" type="button" value="Fecha Conexao" style="width: 50%; height: 50px;"><br>
+    <input id="qrcode-solo" type="button" value="Imprimir QRCode Solo" style="width: 50%; height: 50px;"><br>
     <ul id="list">
         <li>resultados:</li>
     </ul>
@@ -22,6 +23,7 @@
         document.querySelector('#status').addEventListener('click', testeStatusImpressora)
         document.querySelector('#abre').addEventListener('click', testeAbreConexao)
         document.querySelector('#fecha').addEventListener('click', testeFechaConexao)
+        document.querySelector('#qrcode-solo').addEventListener('click', testeImpressaoQRCodeSolo)
 
         function addLi(text) {
             let ul = document.getElementById("list");
@@ -114,6 +116,16 @@
 
             result = Termica.FechaConexaoImpressora(JSON.stringify({}))
             addLi('fecha')
+            addLi(`result: ${result}`)
+        }
+
+        function testeImpressaoQRCodeSolo() {
+            removeLis()
+            args = JSON.stringify({ dados: 'https://web-app-experience.herokuapp.com/', 
+                                    tamanho: 4, 
+                                    nivelCorrecao: 2 })
+            result = Termica.ImpressaoQRCode(args)
+            addLi('impressao texto')
             addLi(`result: ${result}`)
         }
 
