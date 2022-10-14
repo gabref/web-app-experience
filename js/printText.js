@@ -13,16 +13,16 @@ printBtn.addEventListener('click', () => {
     callWebView(Termica.AbreConexaoImpressora(args))
 
     args = JSON.stringify({ dados: message.value, 
-                            posicao: [...rdbs].findIndex((e) => e.checked), 
+                            alinhamento: [...rdbs].findIndex((e) => e.checked), 
                             stilo: getStiloValue(), 
                             tamanho: selectSize.value })
     callWebView(Termica.ImpressaoTexto(args))
     
     if (chkCutPaper.checked) {
-        callWebView(Termica.Corte(10))
+        callWebView(Termica.Corte(JSON.stringify({ avanco: 10 })))
     }
 
-    callWebView(Termica.FechaConexaoImpressora())
+    callWebView(Termica.FechaConexaoImpressora(JSON.stringify({})))
 })
 
 let getStiloValue = () => {

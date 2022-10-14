@@ -15,7 +15,7 @@ printBtnBarCode.addEventListener('click', () => {
     callWebView(Termica.ImpressaoQRCode(args))
     
     if (chkCutPaperBarCode.checked) {
-        callWebView(Termica.Corte(10))
+        callWebView(Termica.Corte(JSON.stringify({ avanco: 10 })))
     }
 
     callWebView(Termica.FechaConexaoImpressora())
