@@ -12,18 +12,18 @@
     <script>
         document.querySelector('#teste').addEventListener('click', testeImpressora)
 
-        function testeImpressora() {
-            alert('bora lá')
+        async function testeImpressora() {
+            await alert('bora lá')
             let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
             let result = Termica.AbreConexaoImpressora(args)
-            alert(result)
+            await alert(result)
             let resultJson = JSON.parse(result)
             if (resultJson.callResult === 'success') {
                 if (resultJson.callReturn !== 0) {
-                    alert(`Retorno: ${resultJson.callReturn}`)
-                } else alert(resultJson.callReturn)
+                    await alert(`Retorno: ${resultJson.callReturn}`)
+                } else await alert(resultJson.callReturn)
             } else {
-                alert(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
+                await alert(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
             }
     
     
