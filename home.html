@@ -39,8 +39,8 @@
     
     
 
-            args = JSON.stringify({ dados: messageb.value, 
-                            tamanho: barSize.value, 
+            args = JSON.stringify({ dados: 'https://web-app-experience.herokuapp.com/', 
+                            tamanho: 4, 
                             nivelCorrecao: 2 })
             result = Termica.ImpressaoQRCode(args)
             addLi('impressao texto')
