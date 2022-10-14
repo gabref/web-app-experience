@@ -13,8 +13,10 @@
         document.querySelector('#teste').addEventListener('click', testeImpressora)
 
         function testeImpressora() {
+            alert('bora lá')
             let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
             let result = Termica.AbreConexaoImpressora(args)
+            alert(result)
             let resultJson = JSON.parse(result)
             if (resultJson.callResult === 'success') {
                 if (resultJson.callReturn !== 0) {
