@@ -8,12 +8,16 @@
     <title>Test</title>
 </head>
 <body>
-    <input id="teste" type="button" value="Imprimir Teste" style="width: 50%;">
+    <input id="texto" type="button" value="Imprimir Teste" style="width: 50%;"><br>
+    <input id="qrcode" type="button" value="Imprimir QRCode" style="width: 50%;"><br>
+    <input id="status" type="button" value="Status Impressora" style="width: 50%;"><br>
     <ul id="list">
         <li>resultados:</li>
     </ul>
     <script>
-        document.querySelector('#teste').addEventListener('click', testeImpressora)
+        document.querySelector('#texto').addEventListener('click', testeImpressaoTexto)
+        document.querySelector('#qrcode').addEventListener('click', testeImpressaoQRCode)
+        document.querySelector('#status').addEventListener('click', testeStatusImpressora)
 
         function addLi(text) {
             let ul = document.getElementById("list");
@@ -22,62 +26,77 @@
             ul.appendChild(li);
         }
 
-        function testeImpressora() {
+        function removeLis() {
+            document.getElementById("list").innerHTML = "";
+        }
+
+        function testeImpressaoTexto() {
+            removeLis()
             addLi('bora lá')
             let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
             let result = Termica.AbreConexaoImpressora(args)
             addLi('abreconexaoimpressora')
             addLi(`result: ${result}`)
-            let resultJson = JSON.parse(result)
-            if (resultJson.callResult === 'success') {
-                if (resultJson.callReturn !== 0) {
-                    addLi(`Retorno: ${resultJson.callReturn}`)
-                } else addLi(resultJson.callReturn)
-            } else {
-                addLi(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
-            }
     
-    
-
-            args = JSON.stringify({ dados: 'https://web-app-experience.herokuapp.com/', 
-                            tamanho: 4, 
-                            nivelCorrecao: 2 })
-            result = Termica.ImpressaoQRCode(args)
+            args = JSON.stringify({ dados : 'Elgin Developers Community From Web App', 
+                                    alinhamento: 0, 
+                                    stilo: 0, 
+                                    tamanho: 17 })
+            result = Termica.ImpressaoTexto(args)
             addLi('impressao texto')
             addLi(`result: ${result}`)
-            resultJson = JSON.parse(result)
-            if (resultJson.callResult === 'success') {
-                if (resultJson.callReturn !== 0) {
-                    alert(`Retorno: ${resultJson.callReturn}`)
-                } else alert(resultJson.callReturn)
-            } else {
-                alert(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
-            }
     
             result = Termica.Corte(JSON.stringify({ avanco : 10 }))
             addLi('corte')
             addLi(`result: ${result}`)
-            resultJson = JSON.parse(result)
-            if (resultJson.callResult === 'success') {
-                if (resultJson.callReturn !== 0) {
-                    alert(`Retorno: ${resultJson.callReturn}`)
-                } else alert(resultJson.callReturn)
-            } else {
-                alert(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
-            }
-    
+
             result = Termica.FechaConexaoImpressora(JSON.stringify({}))
             addLi('fecha')
             addLi(`result: ${result}`)
-            resultJson = JSON.parse(result)
-            if (resultJson.callResult === 'success') {
-                if (resultJson.callReturn !== 0) {
-                    alert(`Retorno: ${resultJson.callReturn}`)
-                } else alert(resultJson.callReturn)
-            } else {
-                alert(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
-            }
         }
+
+        function testeImpressaoQRCode() {
+            removeLis()
+            addLi('bora lá')
+            let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
+            let result = Termica.AbreConexaoImpressora(args)
+            addLi('abreconexaoimpressora')
+            addLi(`result: ${result}`)
+    
+            args = JSON.stringify({ dados: 'https://web-app-experience.herokuapp.com/', 
+                                    tamanho: 4, 
+                                    nivelCorrecao: 2 })
+            result = Termica.ImpressaoQRCode(args)
+            addLi('impressao texto')
+            addLi(`result: ${result}`)
+    
+            result = Termica.Corte(JSON.stringify({ avanco : 10 }))
+            addLi('corte')
+            addLi(`result: ${result}`)
+
+            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
+            addLi('fecha')
+            addLi(`result: ${result}`)
+        }
+
+        function testeStatusImpressora() {
+            removeLis()
+            addLi('bora lá')
+            let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
+            let result = Termica.AbreConexaoImpressora(args)
+            addLi('abreconexaoimpressora')
+            addLi(`result: ${result}`)
+    
+            args = JSON.stringify({ param: 3 })
+            result = Termica.StatusImpressora(args)
+            addLi('statusimpressora')
+            addLi(`result: ${result}`)
+
+            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
+            addLi('fecha')
+            addLi(`result: ${result}`)
+        }
+
     </script>
 </body>
 </html>
