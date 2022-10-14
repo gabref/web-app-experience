@@ -18,5 +18,5 @@ printBtnBarCode.addEventListener('click', () => {
         callWebView(Termica.Corte(JSON.stringify({ avanco: 10 })))
     }
 
-    callWebView(Termica.FechaConexaoImpressora())
+    callWebView(Termica.FechaConexaoImpressora(JSON.stringify({})))
 })
