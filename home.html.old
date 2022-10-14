@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Web</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div class="left-options">
+            <div class="box card" id="print-text">
+                <span class="text">Impressão de Texto</span>
+            </div>
+            <div class="box card card-subtle" id="print-barcode">
+                <span class="text">Impressão Código de Barras</span>
+            </div>
+            <div class="box card card-subtle default-tab" id="sat">
+                <span class="text">SAT</span>
+            </div>
+        </div>
+        <div class="right-side">
+            <!-- IMPRESSÃO DE TEXTO -->
+            <div class="print-text tabcontent">
+                <h2 class="title-center">Impressão de Texto</h2>
+                <div class="printer-main">
+                    <div class="message">
+                        <label for="message">Mensagem:</label>
+                        <input type="text" name="message" id="message" value="Elgin Developers Community" class="text-white">
+                    </div>
+                    <div class="alignment">
+                        <div class="title-left">Alinhamento:</div>
+                        <div class="alignment-options">
+                            <div class="box">
+                                <input type="radio" id="rdb-left" name="rdb-align" value="rdb-left" class="radio radio-purple" checked>
+                                <label for="rdb-left" class="text text-white">Esquerda</label>
+                            </div>
+                            <div class="box">
+                                <input type="radio" id="rdb-center" name="rdb-align" class="radio radio-purple" value="rdb-center">
+                                <label for="rdb-center" class="text text-white">Centralizado</label>
+                            </div>
+                            <div class="box">
+                                <input type="radio" id="rdb-right" name="rdb-align" class="radio radio-purple" value="rdb-right">
+                                <label for="rdb-right" class="text text-white">Direita</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="styling">
+                        <div class="title-left">Estilização:</div>
+                        <div class="options">
+                            <label for="font-fam">Font Family:</label>
+                            <select name="font" id="font-fam" class="select select-purple">
+                                <option value="0">Font A</option>
+                                <option value="1">Font B</option>
+                            </select>
+                            <label for="font-siz">Font Size:</label>
+                            <select name="font" id="font-siz" class="select">
+                                <option value="17">17</option>
+                                <option value="34">34</option>
+                                <option value="51">51</option>
+                                <option value="68">68</option>
+                            </select>
+                            <div class="checkboxes">
+                                <div class="box">
+                                    <input type="checkbox" id="bold" name="bold" value="8" class="checkbox checkbox-purple">
+                                    <label for="bold" class="text text-white"> Negrito</label>
+                                </div>
+                                <div class="box">
+                                    <input type="checkbox" id="italic" name="italic" value="2" class="checkbox checkbox-purple">
+                                    <label for="italic" class="text text-white"> Sublinahdo</label>
+                                </div>
+                                <div class="box">
+                                    <input type="checkbox" id="cut" name="cut" value="0" class="checkbox checkbox-purple">
+                                    <label for="cut" class="text text-white"> Cut Paper</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <input type="button" id="print-send" value="Imprimir Texto" class="btn bg-purple-cyan m-sm">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================= -->
+            <!-- IMPRESSÃO DE CÓDIGOS DE BARRAS -->
+            <!-- ============================= -->
+            <div class="print-barcode tabcontent">
+                <h2 class="title-center">Código de Barras</h2>
+                <div class="barcode-main">
+                    <div class="message">
+                        <label for="messageb">Código:</label>
+                        <input type="text" id="messageb" name="message" value="40170725" class="text-white">
+                    </div>
+                    <div class="options">
+                        <label for="barcode-type">Tipo de Código de Barras:</label>
+                        <select name="font" id="barcode-type" class="select select-purple">
+                            <option value="9">QR Code</option>
+                        </select>
+                    </div>
+                    <!-- <div class="alignment">
+                        <div class="title-left">Alinhamento:</div>
+                        <div class="alignment-options">
+                            <div class="box">
+                                <div class="box">
+                                    <input type="radio" id="rdb-bleft" name="rdb-align" value="rdb-left" class="radio radio-purple" checked>
+                                    <label for="rdb-bleft" class="text text-white">Esquerda</label>
+                                </div>
+                                <div class="box">
+                                    <input type="radio" id="rdb-bcenter" name="rdb-align" class="radio radio-purple" value="rdb-center">
+                                    <label for="rdb-bcenter" class="text text-white">Centralizado</label>
+                                </div>
+                                <div class="box">
+                                    <input type="radio" id="rdb-bright" name="rdb-align" class="radio radio-purple" value="rdb-right">
+                                    <label for="rdb-bright" class="text text-white">Direita</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="styling">
+                        <div class="title-left">Estilização:</div>
+                        <div class="options">
+                            <!-- <label for="font-fam">Font Family:</label>
+                            <select name="font" id="font-fam" class="select select-purple">
+                                <option value="0">Font A</option>
+                                <option value="1">Font B</option>
+                            </select> -->
+                            <label for="bar-size">Font Size:</label>
+                            <select name="font" id="bar-size" class="select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                            <div class="checkboxes">
+                                <!-- <div class="box">
+                                    <input type="checkbox" id="bold" name="bold" value="8" class="checkbox checkbox-purple">
+                                    <label for="bold" class="text text-white"> Negrito</label>
+                                </div>
+                                <div class="box">
+                                    <input type="checkbox" id="italic" name="italic" value="2" class="checkbox checkbox-purple">
+                                    <label for="italic" class="text text-white"> Sublinahdo</label>
+                                </div> -->
+                                <div class="box">
+                                    <input type="checkbox" id="cutb" name="cut" value="0" class="checkbox checkbox-purple">
+                                    <label for="cutb" class="text text-white"> Cut Paper</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <input type="button" id="printb-send" value="Imprimir Código" class="btn bg-purple-cyan m-sm">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================= -->
+            <!-- SAT -->
+            <!-- ============================= -->
+            <div class="sat tabcontent">
+                <h2 class="title-center">SAT Homologação</h2>
+                <div class="sat-main">
+                    <div class="text-area">
+                        <textarea name="retorno" id="retsat">Retorno: </textarea>
+                    </div>
+                    <div class="sat-functions">
+                        <div class="box-sat-rdbs">
+                            <div class="box">
+                                <input type="radio" id="smart-sat" name="rdb-sat" value="smartsat" class="radio radio-purple" checked>
+                                <label for="smart-sat" class="text text-white">Smart Sat</label>
+                            </div>
+                            <div class="box">
+                                <input type="radio" id="satgo" name="rdb-sat" class="radio radio-purple" value="satgo">
+                                <label for="satgo" class="text text-white">SatGo</label>
+                            </div>
+                        </div>
+                        <div class="message cod-ativacao">
+                            <label for="cod-ativacao">Código:</label>
+                            <input type="text" id="cod-ativacao" name="message" value="123456789" class="text-white">
+                        </div>
+                        <div class="buttons-sat">
+                            <input type="button" id="consultar-sat" value="Consultar Sat" class="btn bg-purple-cyan m-sm">
+                            <input type="button" id="status-operacional" value="Status Operacional" class="btn bg-purple-cyan m-sm">
+                            <!-- <input type="button" id="realizar-venda" value="Realizar Venda" class="btn bg-purple-cyan m-sm"> -->
+                            <input type="button" id="extrair-log" value="Extrair Log" class="btn bg-purple-cyan m-sm">
+                            <input type="button" id="cancelamento" value="Cancelamento" class="btn bg-purple-cyan m-sm">
+                            <input type="button" id="ativar" value="Ativar" class="btn bg-purple-cyan m-sm">
+                            <input type="button" id="associar" value="Associar" class="btn bg-purple-cyan m-sm">
+                        </div>
+                    </div>
+                </div>
+
+            </div>    
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/printText.js"></script>
+    <script src="js/printBarCode.js"></script>
+    <script src="js/sat.js"></script>
+</body>
+</html>
