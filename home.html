@@ -26,6 +26,7 @@
             addLi('bora lá')
             let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
             let result = Termica.AbreConexaoImpressora(args)
+            addLi('abreconexaoimpressora')
             addLi(`result: ${result}`)
             let resultJson = JSON.parse(result)
             if (resultJson.callResult === 'success') {
@@ -42,6 +43,8 @@
                                     stilo: 0, 
                                     tamanho: 17 })
             result = Termica.ImpressaoTexto(args)
+            addLi('impressao texto')
+            addLi(`result: ${result}`)
             resultJson = JSON.parse(result)
             if (resultJson.callResult === 'success') {
                 if (resultJson.callReturn !== 0) {
@@ -52,6 +55,8 @@
             }
     
             result = Termica.Corte(10)
+            addLi('corte')
+            addLi(`result: ${result}`)
             resultJson = JSON.parse(result)
             if (resultJson.callResult === 'success') {
                 if (resultJson.callReturn !== 0) {
@@ -62,6 +67,8 @@
             }
     
             result = Termica.FechaConexaoImpressora()
+            addLi('fecha')
+            addLi(`result: ${result}`)
             resultJson = JSON.parse(result)
             if (resultJson.callResult === 'success') {
                 if (resultJson.callReturn !== 0) {
