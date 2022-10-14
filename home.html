@@ -146,16 +146,16 @@
                                     tamanho: 4, 
                                     nivelcorrecao: 2 })
             result = Termica.ImpressaoQRCode(args)
-            addli('impressao qrcode solo')
-            addli(`result: ${result}`)
+            addLi('impressao qrcode solo')
+            addLi(`result: ${result}`)
         }
 
         function testeAbreGaveta() {
             removeLis()
             args = JSON.stringify({ })
             result = Termica.AbreGavetaElgin(args)
-            addli('teste gaveta')
-            addli(`result: ${result}`)
+            addLi('teste gaveta')
+            addLi(`result: ${result}`)
         }
 
         function testeCorte() {
