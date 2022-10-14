@@ -141,7 +141,7 @@
         }
 
         function testeImpressaoQRCodeSolo() {
-            removelis()
+            removeLis()
             args = json.stringify({ dados: 'https://web-app-experience.herokuapp.com/', 
                                     tamanho: 4, 
                                     nivelcorrecao: 2 })
@@ -151,7 +151,7 @@
         }
 
         function testeAbreGaveta() {
-            removelis()
+            removeLis()
             args = json.stringify({ })
             result = Termica.AbreGavetaElgin(args)
             addli('teste gaveta')
