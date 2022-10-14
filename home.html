@@ -9,21 +9,31 @@
 </head>
 <body>
     <input id="teste" type="button" value="Imprimir Teste" style="width: 50%;">
+    <ul id="list">
+        <li>resultados:</li>
+    </ul>
     <script>
         document.querySelector('#teste').addEventListener('click', testeImpressora)
 
-        async function testeImpressora() {
-            await alert('bora lá')
+        function addLi(text) {
+            let ul = document.getElementById("list");
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(text));
+            ul.appendChild(li);
+        }
+
+        function testeImpressora() {
+            addLi('bora lá')
             let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
             let result = Termica.AbreConexaoImpressora(args)
-            await alert(result)
+            addLi(`result: ${result}`)
             let resultJson = JSON.parse(result)
             if (resultJson.callResult === 'success') {
                 if (resultJson.callReturn !== 0) {
-                    await alert(`Retorno: ${resultJson.callReturn}`)
-                } else await alert(resultJson.callReturn)
+                    addLi(`Retorno: ${resultJson.callReturn}`)
+                } else addLi(resultJson.callReturn)
             } else {
-                await alert(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
+                addLi(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
             }
     
     
