@@ -54,7 +54,7 @@
                 alert(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
             }
     
-            result = Termica.Corte({ avanco : 10 })
+            result = Termica.Corte(JSON.stringify({ avanco : 10 }))
             addLi('corte')
             addLi(`result: ${result}`)
             resultJson = JSON.parse(result)
@@ -66,7 +66,7 @@
                 alert(`Failed\nCall Result Code: ${resultJson.callResultCode}\nCall Return: ${resultJson.callReturn}`)
             }
     
-            result = Termica.FechaConexaoImpressora({})
+            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
             addLi('fecha')
             addLi(`result: ${result}`)
             resultJson = JSON.parse(result)
