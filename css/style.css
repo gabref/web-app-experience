@@ -80,11 +80,12 @@ main {
 .left-options {
     background-color: #44475a;
     grid-area: options;
+	height: 100%;
 }
 
 .card {
     background-color: var(--accentColor);
-	box-shadow: -2px var(--glow-spacing-x) var(--glow-spacing-y) var(--glowColor);
+	box-shadow: -1px var(--glow-spacing-x) var(--glow-spacing-y) var(--glowColor);
 	background: linear-gradient(var(--gradientDegree), var(--pink) 0, var(--purple) 100%);
 	line-height: var(--line-height-md);
     padding: var(--spacing-sm);
