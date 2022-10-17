@@ -173,8 +173,7 @@
         }
 
         function testeImprimeCupomTEF() {
-            let cupom = 
-                '000-000 = CRT\r\n' +
+            let cupom = '000-000 = CRT\r\n' +
                 '001-000 = 1\r\n' +
                 '002-000 = 123456\r\n' +
                 '003-000 = 4500\r\n' +
@@ -238,7 +237,7 @@
                 '300-001 = 0825\r\n' +
                 '600-000 = 01425787000104\r\n' +
                 '701-016 = 0326\r\n' +
-                '999-999 = 0\r\n' +
+                '999-999 = 0\r\n'
 
             removeLis()
             result = Termica.ImprimeCupomTEF(JSON.stringify({ dados : cupom }))
