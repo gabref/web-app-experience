@@ -80,16 +80,15 @@ main {
 .left-options {
     background-color: #44475a;
     grid-area: options;
-	display: flex;
-	flex-direction: column;
 }
+
 .card {
     background-color: var(--accentColor);
 	box-shadow: -2px var(--glow-spacing-x) var(--glow-spacing-y) var(--glowColor);
 	background: linear-gradient(var(--gradientDegree), var(--pink) 0, var(--purple) 100%);
 	line-height: var(--line-height-md);
     padding: var(--spacing-sm);
-    height: 20%;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
