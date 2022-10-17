@@ -80,7 +80,7 @@ main {
 .left-options {
     background-color: #44475a;
     grid-area: options;
-	height: 100%;
+	height: 100vh;
 }
 
 .card {
