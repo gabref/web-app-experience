@@ -23,17 +23,17 @@
         <li>resultados:</li>
     </ul>
     <script>
-        document.querySelector('#texto').addEventListener('click', testeImpressaoTexto)
-        document.querySelector('#qrcode').addEventListener('click', testeImpressaoQRCode)
-        document.querySelector('#status').addEventListener('click', testeStatusImpressora)
+        // document.querySelector('#texto').addEventListener('click', testeImpressaoTexto)
+        // document.querySelector('#qrcode').addEventListener('click', testeImpressaoQRCode)
         document.querySelector('#abre').addEventListener('click', testeAbreConexao)
-        document.querySelector('#fecha').addEventListener('click', testeFechaConexao)
+        document.querySelector('#status').addEventListener('click', testeStatusImpressora)
         document.querySelector('#qrcode-solo').addEventListener('click', testeImpressaoQRCodeSolo)
         document.querySelector('#texto-solo').addEventListener('click', testeImpressaoTextoSolo)
         document.querySelector('#abre-gaveta').addEventListener('click', testeAbreGaveta)
         document.querySelector('#corte').addEventListener('click', testeCorte)
         document.querySelector('#avanca').addEventListener('click', testeAvancaPapel)
         document.querySelector('#cupomtef').addEventListener('click', testeImprimeCupomTEF)
+        document.querySelector('#fecha').addEventListener('click', testeFechaConexao)
 
         function addLi(text) {
             let ul = document.getElementById("list");
@@ -113,20 +113,20 @@
 
         function testeStatusImpressora() {
             removeLis()
-            addLi('bora lá')
-            let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
-            let result = Termica.AbreConexaoImpressora(args)
-            addLi('abreconexaoimpressora')
-            addLi(`result: ${result}`)
+            // addLi('bora lá')
+            // let args = JSON.stringify({ tipo: 5, modelo: '', conexao: '', parametro: 0 })
+            // let result = Termica.AbreConexaoImpressora(args)
+            // addLi('abreconexaoimpressora')
+            // addLi(`result: ${result}`)
     
             args = JSON.stringify({ param: 3 })
             result = Termica.StatusImpressora(args)
             addLi('statusimpressora')
             addLi(`result: ${result}`)
 
-            result = Termica.FechaConexaoImpressora(JSON.stringify({}))
-            addLi('fecha')
-            addLi(`result: ${result}`)
+            // result = Termica.FechaConexaoImpressora(JSON.stringify({}))
+            // addLi('fecha')
+            // addLi(`result: ${result}`)
         }
 
         function testeImpressaoTextoSolo() {
@@ -173,7 +173,73 @@
         }
 
         function testeImprimeCupomTEF() {
-            let cupom = '000-000 = CRT\n 001-000 = 1\n 002-000 = 123456\n 003-000 = 4500\n 010-000 = ELECTRON\n 010-001 = 103\n 010-003 = 21\n 010-004 = 417402\n 010-005 = 7578\n 011-000 = 03603511027\n 012-000 = 001315\n 013-000 = 001315\n 018-000 = 01\n 022-000 = 0326\n 023-000 = 192414\n 028-000 = 37\n 029-001 = ELGIN PAY TESTE BANRISUL\n 029-002 = 92.702.067/0001-96   \n 029-003 = R CAPITAO MONTANHA, 177\n 029-004 = CENTRO PORTO ALEGRE RS\n 029-005 = \n 029-006 = \n 029-007 = \n 029-008 = \n 029-009 =                  REDE                 \n 029-010 = \n 029-011 = REDESHOP  -      OKI                  \n 029-012 = \n 029-013 = \n 029-014 = COMPROV: 123456789 VALOR: 45,00\n 029-015 = \n 029-016 = ESTAB:013932594 SCOPE TESTE SIMULADO  \n 029-017 = DD.MM.AA-HH:MM:SS TERM:PV123456/pppnnn\n 029-018 = CARTAO: ************7578\n 029-019 = AUTORIZACAO: 123456                   \n 029-020 = ARQC:36DEFEF9D3490BC5\n 029-021 = \n 029-022 = **************************************\n 029-023 =          D E M O N S T R A C A O      \n 029-024 =  Transacao sem validade para reembolso\n 029-025 =     Autorizacao gerada por simulador  \n 029-026 = **************************************\n 029-027 = \n 029-028 =     TRANSACAO AUTORIZADA MEDIANTE     \n 029-029 =         USO DE SENHA PESSOAL.         \n 029-030 =                                       \n 029-031 = 0\n 029-032 = CONTROLE 03603511027  OKI BRASIL SCOPE\n 029-033 = \n 029-034 = \n 029-035 = \n 029-036 = \n 029-037 = \n 030-000 = Transação Finalizada com Sucesso\n 043-000 = SIMULADOR\n 047-000 = 00\n 050-000 = 000\n 150-000 = 000000000000002\n 210-004 = 4174020000007578=25080000000000000000\n 210-052 = 001\n 210-052 = 001\n 300-001 = 0825\n 600-000 = 01425787000104\n 701-016 = 0326\n 999-999 = 0'
+            let cupom = 
+                '000-000 = CRT\r\n' +
+                '001-000 = 1\r\n' +
+                '002-000 = 123456\r\n' +
+                '003-000 = 4500\r\n' +
+                '010-000 = ELECTRON\r\n' +
+                '010-001 = 103\r\n' +
+                '010-003 = 21\r\n' +
+                '010-004 = 417402\r\n' +
+                '010-005 = 7578\r\n' +
+                '011-000 = 03603511027\r\n' +
+                '012-000 = 001315\r\n' +
+                '013-000 = 001315\r\n' +
+                '018-000 = 01\r\n' +
+                '022-000 = 0326\r\n' +
+                '023-000 = 192414\r\n' +
+                '028-000 = 37\r\n' +
+                '029-001 = ELGIN PAY TESTE BANRISUL\r\n' +
+                '029-002 = 92.702.067/0001-96   \r\n' +
+                '029-003 = R CAPITAO MONTANHA, 177\r\n' +
+                '029-004 = CENTRO PORTO ALEGRE RS\r\n' +
+                '029-005 = \r\n' +
+                '029-006 = \r\n' +
+                '029-007 = \r\n' +
+                '029-008 = \r\n' +
+                '029-009 =                  REDE                 \r\n' +
+                '029-010 = \r\n' +
+                '029-011 = REDESHOP  -      OKI                  \r\n' +
+                '029-012 = \r\n' +
+                '029-013 = \r\n' +
+                '029-014 = COMPROV: 123456789 VALOR: 45,00\r\n' +
+                '029-015 = \r\n' +
+                '029-016 = ESTAB:013932594 SCOPE TESTE SIMULADO  \r\n' +
+                '029-017 = DD.MM.AA-HH:MM:SS TERM:PV123456/pppnnn\r\n' +
+                '029-018 = CARTAO: ************7578\r\n' +
+                '029-019 = AUTORIZACAO: 123456                   \r\n' +
+                '029-020 = ARQC:36DEFEF9D3490BC5\r\n' +
+                '029-021 = \r\n' +
+                '029-022 = **************************************\r\n' +
+                '029-023 =          D E M O N S T R A C A O      \r\n' +
+                '029-024 =  Transacao sem validade para reembolso\r\n' +
+                '029-025 =     Autorizacao gerada por simulador  \r\n' +
+                '029-026 = **************************************\r\n' +
+                '029-027 = \r\n' +
+                '029-028 =     TRANSACAO AUTORIZADA MEDIANTE     \r\n' +
+                '029-029 =         USO DE SENHA PESSOAL.         \r\n' +
+                '029-030 =                                       \r\n' +
+                '029-031 = 0\r\n' +
+                '029-032 = CONTROLE 03603511027  OKI BRASIL SCOPE\r\n' +
+                '029-033 = \r\n' +
+                '029-034 = \r\n' +
+                '029-035 = \r\n' +
+                '029-036 = \r\n' +
+                '029-037 = \r\n' +
+                '030-000 = Transação Finalizada com Sucesso\r\n' +
+                '043-000 = SIMULADOR\r\n' +
+                '047-000 = 00\r\n' +
+                '050-000 = 000\r\n' +
+                '150-000 = 000000000000002\r\n' +
+                '210-004 = 4174020000007578=25080000000000000000\r\n' +
+                '210-052 = 001\r\n' +
+                '210-052 = 001\r\n' +
+                '300-001 = 0825\r\n' +
+                '600-000 = 01425787000104\r\n' +
+                '701-016 = 0326\r\n' +
+                '999-999 = 0\r\n' +
+
             removeLis()
             result = Termica.ImprimeCupomTEF(JSON.stringify({ dados : cupom }))
             addLi('cupomtef')
