@@ -80,7 +80,10 @@ main {
 .left-options {
     background-color: #44475a;
     grid-area: options;
-	height: 100vh;
+	list-style: none;
+	display: grid;
+	grid-auto-rows: 170px;
+	grid-gap: 10px;
 }
 
 .card {
